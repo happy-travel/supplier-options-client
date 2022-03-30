@@ -43,12 +43,12 @@ public class SupplierOptionsClient : ISupplierOptionsClient
         => SendWithoutResult(new HttpRequestMessage(HttpMethod.Delete, $"{_clientSettings.Endpoint}/{code}"));
     
     
-    public Task<Result> Activate(string code) 
-        => SendWithoutResult(new HttpRequestMessage(HttpMethod.Post, $"{_clientSettings.Endpoint}/{code}/activate"));
+    public Task<Result> Activate(string code, string reason) 
+        => SendWithoutResult(new HttpRequestMessage(HttpMethod.Post, $"{_clientSettings.Endpoint}/{code}/activate?reason={reason}"));
     
     
-    public Task<Result> Deactivate(string code) 
-        => SendWithoutResult(new HttpRequestMessage(HttpMethod.Post, $"{_clientSettings.Endpoint}/{code}/deactivate"));
+    public Task<Result> Deactivate(string code, string reason) 
+        => SendWithoutResult(new HttpRequestMessage(HttpMethod.Post, $"{_clientSettings.Endpoint}/{code}/deactivate?reason={reason}"));
 
     
     private async Task<Result> SendWithoutResult(HttpRequestMessage message)
