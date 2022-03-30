@@ -58,9 +58,9 @@ public class SupplierOptionsClient : ISupplierOptionsClient
             return Result.Success();
 
         var problemDetails = await response.Content.ReadFromJsonAsync<ProblemDetails>(SerializerOptions) 
-                             ?? throw new JsonException("Could not deserialize server error response") ;;
+                             ?? throw new JsonException("Could not deserialize server error response");
 
-        return Result.Failure(problemDetails.Detail);
+        return Result.Failure(problemDetails?.Detail ?? $"{response.StatusCode} {response.ReasonPhrase}");
     }
     
 
@@ -73,10 +73,10 @@ public class SupplierOptionsClient : ISupplierOptionsClient
                    ?? throw new JsonException("Could not deserialize server response");
         }
 
-        var errorDetails = await response.Content.ReadFromJsonAsync<ProblemDetails>() 
+        var problemDetails = await response.Content.ReadFromJsonAsync<ProblemDetails>() 
                            ?? throw new JsonException("Could not deserialize server error response");
         
-        return Result.Failure<TResponse>(errorDetails.Detail);
+        return Result.Failure<TResponse>(problemDetails?.Detail ?? $"{response.StatusCode} {response.ReasonPhrase}");
     }
 
 
