@@ -60,7 +60,7 @@ public class SupplierOptionsClient : ISupplierOptionsClient
         var problemDetails = await response.Content.ReadFromJsonAsync<ProblemDetails>(SerializerOptions) 
                              ?? throw new JsonException("Could not deserialize server error response");
 
-        return Result.Failure(problemDetails?.Detail ?? $"{response.StatusCode} {response.ReasonPhrase}");
+        return Result.Failure(problemDetails?.Detail ?? $"Request to sunpu returned: {response.StatusCode} {response.ReasonPhrase}");
     }
     
 
@@ -76,7 +76,7 @@ public class SupplierOptionsClient : ISupplierOptionsClient
         var problemDetails = await response.Content.ReadFromJsonAsync<ProblemDetails>() 
                            ?? throw new JsonException("Could not deserialize server error response");
         
-        return Result.Failure<TResponse>(problemDetails?.Detail ?? $"{response.StatusCode} {response.ReasonPhrase}");
+        return Result.Failure<TResponse>(problemDetails?.Detail ?? $"Request to sunpu returned: {response.StatusCode} {response.ReasonPhrase}");
     }
 
 
