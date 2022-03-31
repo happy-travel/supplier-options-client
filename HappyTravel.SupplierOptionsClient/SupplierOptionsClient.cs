@@ -28,14 +28,14 @@ public class SupplierOptionsClient : ISupplierOptionsClient
     public Task<Result> Add(RichSupplier supplier)
         => SendWithoutResult(new HttpRequestMessage(HttpMethod.Post, _clientSettings.Endpoint)
         {
-            Content = new StringContent(JsonSerializer.Serialize(supplier))
+            Content = JsonContent.Create(supplier)
         });
 
 
     public Task<Result> Modify(string code, RichSupplier supplier) 
         => SendWithoutResult(new HttpRequestMessage(HttpMethod.Put, $"{_clientSettings.Endpoint}/{code}")
         {
-            Content = new StringContent(JsonSerializer.Serialize(supplier))
+            Content = JsonContent.Create(supplier)
         });
 
 

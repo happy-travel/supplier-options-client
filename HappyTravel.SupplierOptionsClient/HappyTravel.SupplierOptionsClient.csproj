@@ -10,11 +10,11 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <NeutralLanguage>en</NeutralLanguage>
         <Description>Supplier options client</Description>
-        <PackageReleaseNotes>Fixed 500 error if a request to sunpu does not return ProblemDetails</PackageReleaseNotes>
+        <PackageReleaseNotes>Fixed PUT and POST methods</PackageReleaseNotes>
         <PackageProjectUrl>https://github.com/happy-travel/supplier-options-client</PackageProjectUrl>
         <RepositoryURL>https://github.com/happy-travel/supplier-options-client</RepositoryURL>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <Version>0.5.0</Version>
+        <Version>0.5.1</Version>
         <OutputType>Library</OutputType>
         <IsPackable>True</IsPackable>
     </PropertyGroup>
