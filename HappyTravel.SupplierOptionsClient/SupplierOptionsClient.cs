@@ -28,14 +28,14 @@ public class SupplierOptionsClient : ISupplierOptionsClient
     public Task<Result> Add(RichSupplier supplier)
         => SendWithoutResult(new HttpRequestMessage(HttpMethod.Post, _clientSettings.Endpoint)
         {
-            Content = JsonContent.Create(supplier)
+            Content = JsonContent.Create(inputValue: supplier, options: SerializerOptions)
         });
 
 
     public Task<Result> Modify(string code, RichSupplier supplier) 
         => SendWithoutResult(new HttpRequestMessage(HttpMethod.Put, $"{_clientSettings.Endpoint}/{code}")
         {
-            Content = JsonContent.Create(supplier)
+            Content = JsonContent.Create(inputValue: supplier, options: SerializerOptions)
         });
 
 
@@ -60,7 +60,7 @@ public class SupplierOptionsClient : ISupplierOptionsClient
         var problemDetails = await response.Content.ReadFromJsonAsync<ProblemDetails>(SerializerOptions) 
                              ?? throw new JsonException("Could not deserialize server error response");
 
-        return Result.Failure(problemDetails?.Detail ?? $"Request to sunpu returned: {response.StatusCode} {response.ReasonPhrase} {await response.Content.ReadAsStringAsync()}");
+        return Result.Failure(problemDetails?.Detail ?? $"Request to sunpu returned: {(int)response.StatusCode} {response.ReasonPhrase} {await response.Content.ReadAsStringAsync()}");
     }
     
 
@@ -73,10 +73,10 @@ public class SupplierOptionsClient : ISupplierOptionsClient
                    ?? throw new JsonException("Could not deserialize server response");
         }
 
-        var problemDetails = await response.Content.ReadFromJsonAsync<ProblemDetails>() 
+        var problemDetails = await response.Content.ReadFromJsonAsync<ProblemDetails>(SerializerOptions) 
                            ?? throw new JsonException("Could not deserialize server error response");
         
-        return Result.Failure<TResponse>(problemDetails?.Detail ?? $"Request to sunpu returned: {response.StatusCode} {response.ReasonPhrase} {await response.Content.ReadAsStringAsync()}");
+        return Result.Failure<TResponse>(problemDetails?.Detail ?? $"Request to sunpu returned: {(int)response.StatusCode} {response.ReasonPhrase} {await response.Content.ReadAsStringAsync()}");
     }
 
 
