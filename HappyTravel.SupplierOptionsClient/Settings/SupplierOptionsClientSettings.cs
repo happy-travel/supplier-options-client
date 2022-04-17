@@ -2,5 +2,5 @@ namespace HappyTravel.SupplierOptionsClient.Settings;
 
 public class SupplierOptionsClientSettings
 {
-    public string Endpoint { get; set; } = string.Empty;
+    public string BaseEndpoint { get; set; } = string.Empty;
 }

@@ -9,7 +9,7 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddSupplierOptionsClient(this IServiceCollection services, 
         Action<SupplierOptionsClientSettings> configurationAction, string identityClientName)
     {
-        services.AddScoped<ISupplierOptionsClient, SupplierOptionsClient>();
+        services.AddTransient<ISupplierOptionsClient, SupplierOptionsClient>();
         services.Configure(configurationAction);
         services.AddClientAccessTokenHttpClient(HttpClientNames.SupplierOptionsClient, identityClientName, (Action<HttpClient>) null!);
         
