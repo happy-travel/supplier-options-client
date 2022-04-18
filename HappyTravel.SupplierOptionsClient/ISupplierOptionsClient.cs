@@ -12,6 +12,6 @@ public interface ISupplierOptionsClient
     Task<Result> Delete(string code);
     Task<Result> Activate(string code, string reason);
     Task<Result> Deactivate(string code, string reason);
-    Task<Result<SupplierPriorityByTypes>> GetPriority();
-    Task<Result> ModifyPriority(SupplierPriorityByTypes supplierPriority);
+    Task<Result<SupplierPriorityByTypes>> GetPriorities();
+    Task<Result> ModifyPriorities(SupplierPriorityByTypes priorities);
 }

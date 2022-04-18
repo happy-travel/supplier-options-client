@@ -10,11 +10,11 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <NeutralLanguage>en</NeutralLanguage>
         <Description>Supplier options client</Description>
-        <PackageReleaseNotes>Add supplier priority methods</PackageReleaseNotes>
+        <PackageReleaseNotes>Fix names of the supplier priority methods </PackageReleaseNotes>
         <PackageProjectUrl>https://github.com/happy-travel/supplier-options-client</PackageProjectUrl>
         <RepositoryURL>https://github.com/happy-travel/supplier-options-client</RepositoryURL>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
         <OutputType>Library</OutputType>
         <IsPackable>True</IsPackable>
     </PropertyGroup>

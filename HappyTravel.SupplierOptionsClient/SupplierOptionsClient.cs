@@ -51,14 +51,14 @@ public class SupplierOptionsClient : ISupplierOptionsClient
         => SendWithoutResult(new HttpRequestMessage(HttpMethod.Post, $"{_clientSettings.BaseEndpoint}/api/1.0/suppliers/{code}/deactivate?reason={reason}"));
 
 
-    public Task<Result<SupplierPriorityByTypes>> GetPriority()
+    public Task<Result<SupplierPriorityByTypes>> GetPriorities()
         => SendWithResult<SupplierPriorityByTypes>(new HttpRequestMessage(HttpMethod.Get, $"{_clientSettings.BaseEndpoint}/api/1.0/supplier-priorities"));
     
     
-    public Task<Result> ModifyPriority(SupplierPriorityByTypes supplierPriority)
+    public Task<Result> ModifyPriorities(SupplierPriorityByTypes priorities)
         => SendWithoutResult(new HttpRequestMessage(HttpMethod.Put, $"{_clientSettings.BaseEndpoint}/api/1.0/supplier-priorities")
         {
-            Content = JsonContent.Create(inputValue: supplierPriority, options: SerializerOptions)
+            Content = JsonContent.Create(inputValue: priorities, options: SerializerOptions)
         });
 
 
