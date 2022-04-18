@@ -18,39 +18,50 @@ public class SupplierOptionsClient : ISupplierOptionsClient
 
     
     public Task<Result<List<SlimSupplier>>> GetAll() 
-        => SendWithResult<List<SlimSupplier>>(new HttpRequestMessage(HttpMethod.Get, _clientSettings.Endpoint));
+        => SendWithResult<List<SlimSupplier>>(new HttpRequestMessage(HttpMethod.Get, $"{_clientSettings.BaseEndpoint}/api/1.0/suppliers"));
 
 
     public Task<Result<RichSupplier>> Get(string code) 
-        => SendWithResult<RichSupplier>(new HttpRequestMessage(HttpMethod.Get, $"{_clientSettings.Endpoint}/{code}"));
+        => SendWithResult<RichSupplier>(new HttpRequestMessage(HttpMethod.Get, $"{_clientSettings.BaseEndpoint}/api/1.0/suppliers/{code}"));
 
 
     public Task<Result> Add(RichSupplier supplier)
-        => SendWithoutResult(new HttpRequestMessage(HttpMethod.Post, _clientSettings.Endpoint)
+        => SendWithoutResult(new HttpRequestMessage(HttpMethod.Post, $"{_clientSettings.BaseEndpoint}/api/1.0/suppliers")
         {
             Content = JsonContent.Create(inputValue: supplier, options: SerializerOptions)
         });
 
 
     public Task<Result> Modify(string code, RichSupplier supplier) 
-        => SendWithoutResult(new HttpRequestMessage(HttpMethod.Put, $"{_clientSettings.Endpoint}/{code}")
+        => SendWithoutResult(new HttpRequestMessage(HttpMethod.Put, $"{_clientSettings.BaseEndpoint}/api/1.0/suppliers/{code}")
         {
             Content = JsonContent.Create(inputValue: supplier, options: SerializerOptions)
         });
 
 
     public Task<Result> Delete(string code) 
-        => SendWithoutResult(new HttpRequestMessage(HttpMethod.Delete, $"{_clientSettings.Endpoint}/{code}"));
+        => SendWithoutResult(new HttpRequestMessage(HttpMethod.Delete, $"{_clientSettings.BaseEndpoint}/api/1.0/suppliers/{code}"));
     
     
     public Task<Result> Activate(string code, string reason) 
-        => SendWithoutResult(new HttpRequestMessage(HttpMethod.Post, $"{_clientSettings.Endpoint}/{code}/activate?reason={reason}"));
+        => SendWithoutResult(new HttpRequestMessage(HttpMethod.Post, $"{_clientSettings.BaseEndpoint}/api/1.0/suppliers/{code}/activate?reason={reason}"));
     
     
     public Task<Result> Deactivate(string code, string reason) 
-        => SendWithoutResult(new HttpRequestMessage(HttpMethod.Post, $"{_clientSettings.Endpoint}/{code}/deactivate?reason={reason}"));
+        => SendWithoutResult(new HttpRequestMessage(HttpMethod.Post, $"{_clientSettings.BaseEndpoint}/api/1.0/suppliers/{code}/deactivate?reason={reason}"));
 
+
+    public Task<Result<SupplierPriorityByTypes>> GetPriority()
+        => SendWithResult<SupplierPriorityByTypes>(new HttpRequestMessage(HttpMethod.Get, $"{_clientSettings.BaseEndpoint}/api/1.0/supplier-priorities"));
     
+    
+    public Task<Result> ModifyPriority(SupplierPriorityByTypes supplierPriority)
+        => SendWithoutResult(new HttpRequestMessage(HttpMethod.Put, $"{_clientSettings.BaseEndpoint}/api/1.0/supplier-priorities")
+        {
+            Content = JsonContent.Create(inputValue: supplierPriority, options: SerializerOptions)
+        });
+
+
     private async Task<Result> SendWithoutResult(HttpRequestMessage message)
     {
         using var response = await Send(message);
