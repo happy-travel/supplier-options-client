@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace HappyTravel.SupplierOptionsClient.Models;
+namespace HappyTravel.SupplierOptionsClient.Infrastructure;
 
 // Duplicating the class due to issue: https://github.com/dotnet/aspnetcore/issues/36970
 internal class ProblemDetails
