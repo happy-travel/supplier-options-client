@@ -14,14 +14,14 @@
         <PackageProjectUrl>https://github.com/happy-travel/supplier-options-client</PackageProjectUrl>
         <RepositoryURL>https://github.com/happy-travel/supplier-options-client</RepositoryURL>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <Version>1.0.4</Version>
+        <Version>1.0.5</Version>
         <OutputType>Library</OutputType>
         <IsPackable>True</IsPackable>
     </PropertyGroup>
     
     <ItemGroup>
         <PackageReference Include="CSharpFunctionalExtensions" Version="2.29.1" />
-        <PackageReference Include="HappyTravel.MapperContracts" Version="1.2.1" />
+        <PackageReference Include="HappyTravel.MapperContracts" Version="1.3.0" />
         <PackageReference Include="IdentityModel.AspNetCore" Version="4.2.0" />
         <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
