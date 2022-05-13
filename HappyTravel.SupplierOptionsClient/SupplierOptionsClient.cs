@@ -60,6 +60,10 @@ public class SupplierOptionsClient : ISupplierOptionsClient
         {
             Content = JsonContent.Create(inputValue: priorities, options: SerializerOptions)
         });
+        
+    
+    public Task<Result> SetOperationMode(string code, OperationMode mode)
+        => SendWithoutResult(new HttpRequestMessage(HttpMethod.Post, $"{_clientSettings.BaseEndpoint}/api/1.0/{code}/set-operation-mode?mode={mode}"));
 
 
     private async Task<Result> SendWithoutResult(HttpRequestMessage message)

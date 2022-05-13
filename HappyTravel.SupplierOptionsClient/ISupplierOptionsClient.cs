@@ -14,4 +14,5 @@ public interface ISupplierOptionsClient
     Task<Result> Deactivate(string code, string reason);
     Task<Result<SupplierPriorityByTypes>> GetPriorities();
     Task<Result> ModifyPriorities(SupplierPriorityByTypes priorities);
+    Task<Result> SetOperationMode(string code, OperationMode mode);
 }
