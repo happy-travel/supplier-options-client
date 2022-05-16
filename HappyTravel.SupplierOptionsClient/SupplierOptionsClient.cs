@@ -62,8 +62,8 @@ public class SupplierOptionsClient : ISupplierOptionsClient
         });
         
     
-    public Task<Result> SetOperationMode(string code, OperationMode mode)
-        => SendWithoutResult(new HttpRequestMessage(HttpMethod.Post, $"{_clientSettings.BaseEndpoint}/api/1.0/{code}/set-operation-mode?mode={mode}"));
+    public Task<Result> SetEnablementState(string code, EnablementState state)
+        => SendWithoutResult(new HttpRequestMessage(HttpMethod.Post, $"{_clientSettings.BaseEndpoint}/api/1.0/{code}/set-enablement-state?state={state}"));
 
 
     private async Task<Result> SendWithoutResult(HttpRequestMessage message)

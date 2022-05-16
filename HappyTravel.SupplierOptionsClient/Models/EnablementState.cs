@@ -1,6 +1,6 @@
 namespace HappyTravel.SupplierOptionsClient.Models;
 
-public enum OperationMode
+public enum EnablementState
 {
     Disabled = 0,
     TestOnly = 1, 
