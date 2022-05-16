@@ -62,8 +62,21 @@ public class SupplierOptionsClient : ISupplierOptionsClient
         });
         
     
-    public Task<Result> SetEnablementState(string code, EnablementState state)
-        => SendWithoutResult(new HttpRequestMessage(HttpMethod.Post, $"{_clientSettings.BaseEndpoint}/api/1.0/{code}/set-enablement-state?state={state}"));
+    public Task<Result> SetEnablementState(string code, EnablementState state, string reason)
+    {
+        var content = JsonContent.Create(inputValue: new
+        {
+            State = state,
+            Reason = reason
+        }, options: SerializerOptions);
+        
+        return SendWithoutResult(new HttpRequestMessage(HttpMethod.Post,
+                $"{_clientSettings.BaseEndpoint}/api/1.0/{code}/set-enablement-state")
+            {
+                Content = content
+            }
+        );
+    }
 
 
     private async Task<Result> SendWithoutResult(HttpRequestMessage message)
