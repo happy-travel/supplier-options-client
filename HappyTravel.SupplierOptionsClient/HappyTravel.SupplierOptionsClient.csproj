@@ -5,16 +5,16 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <Copyright>HappyTravel.com</Copyright>
-        <Authors>Vadim Mingazhev, Alexey Shokarev</Authors>
+        <Authors>Vadim Mingazhev, Alexey Shokarev, Konstantin Yefremov</Authors>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <NeutralLanguage>en</NeutralLanguage>
         <Description>Supplier options client</Description>
-        <PackageReleaseNotes>Replace PriorityTypes with AccommodationDataTypes</PackageReleaseNotes>
+        <PackageReleaseNotes>Add ability to set operation mode for supplier</PackageReleaseNotes>
         <PackageProjectUrl>https://github.com/happy-travel/supplier-options-client</PackageProjectUrl>
         <RepositoryURL>https://github.com/happy-travel/supplier-options-client</RepositoryURL>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <Version>1.0.5</Version>
+        <Version>1.1</Version>
         <OutputType>Library</OutputType>
         <IsPackable>True</IsPackable>
     </PropertyGroup>
