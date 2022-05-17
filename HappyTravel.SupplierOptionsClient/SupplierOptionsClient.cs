@@ -1,5 +1,6 @@
 using System.Net.Http.Json;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using CSharpFunctionalExtensions;
 using HappyTravel.SupplierOptionsClient.Infrastructure;
 using HappyTravel.SupplierOptionsClient.Models;
@@ -108,7 +109,11 @@ public class SupplierOptionsClient : ISupplierOptionsClient
         => _httpClientFactory.CreateClient(HttpClientNames.SupplierOptionsClient).SendAsync(message);
 
 
-    private static readonly JsonSerializerOptions SerializerOptions = new () { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
+    private static readonly JsonSerializerOptions SerializerOptions = new ()
+    {
+        Converters = { new JsonStringEnumConverter() },
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+    };
     
     private readonly IHttpClientFactory _httpClientFactory;
     private readonly SupplierOptionsClientSettings _clientSettings;
