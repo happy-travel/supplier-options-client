@@ -10,11 +10,11 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <NeutralLanguage>en</NeutralLanguage>
         <Description>Supplier options client</Description>
-        <PackageReleaseNotes>Add ability to set enablement state for supplier</PackageReleaseNotes>
+        <PackageReleaseNotes>Fix deserialization error</PackageReleaseNotes>
         <PackageProjectUrl>https://github.com/happy-travel/supplier-options-client</PackageProjectUrl>
         <RepositoryURL>https://github.com/happy-travel/supplier-options-client</RepositoryURL>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <Version>1.1</Version>
+        <Version>1.1.1</Version>
         <OutputType>Library</OutputType>
         <IsPackable>True</IsPackable>
     </PropertyGroup>
