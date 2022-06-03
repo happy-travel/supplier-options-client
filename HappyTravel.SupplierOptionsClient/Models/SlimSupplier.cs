@@ -10,4 +10,5 @@ public record SlimSupplier
     public string? ConnectorGrpcEndpoint { get; set; }
     public bool IsMultiRoomFlowSupported { get; init; }
     public Dictionary<string, string>? CustomHeaders { get; init; }
+    public bool CanUseGrpc { get; set; }
 }
