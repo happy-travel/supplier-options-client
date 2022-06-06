@@ -44,14 +44,6 @@ public class SupplierOptionsClient : ISupplierOptionsClient
         => SendWithoutResult(new HttpRequestMessage(HttpMethod.Delete, $"{_clientSettings.BaseEndpoint}/api/1.0/suppliers/{code}"));
     
     
-    public Task<Result> Activate(string code, string reason) 
-        => SendWithoutResult(new HttpRequestMessage(HttpMethod.Post, $"{_clientSettings.BaseEndpoint}/api/1.0/suppliers/{code}/activate?reason={reason}"));
-    
-    
-    public Task<Result> Deactivate(string code, string reason) 
-        => SendWithoutResult(new HttpRequestMessage(HttpMethod.Post, $"{_clientSettings.BaseEndpoint}/api/1.0/suppliers/{code}/deactivate?reason={reason}"));
-
-
     public Task<Result<SupplierPriorityByTypes>> GetPriorities()
         => SendWithResult<SupplierPriorityByTypes>(new HttpRequestMessage(HttpMethod.Get, $"{_clientSettings.BaseEndpoint}/api/1.0/supplier-priorities"));
     
