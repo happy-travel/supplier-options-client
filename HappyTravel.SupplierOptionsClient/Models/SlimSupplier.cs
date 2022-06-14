@@ -10,4 +10,5 @@ public record SlimSupplier
     public bool IsMultiRoomFlowSupported { get; init; }
     public Dictionary<string, string>? CustomHeaders { get; init; }
     public bool CanUseGrpc { get; set; }
+    public string? GiataCode { get; set; }
 }
