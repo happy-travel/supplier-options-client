@@ -4,7 +4,7 @@ public class RichSupplier
 {
     public string Code { get; init; } = string.Empty;
     public string Name { get; init; } = string.Empty;
-    public EnablementState EnablementState { get; init; }
+    public EnableState EnableState { get; init; }
     public string ConnectorUrl { get; init; } = string.Empty;
     public string? ConnectorGrpcEndpoint { get; set; }
     public bool IsMultiRoomFlowSupported { get; init; }
