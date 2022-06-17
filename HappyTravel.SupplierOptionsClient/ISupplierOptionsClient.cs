@@ -12,5 +12,5 @@ public interface ISupplierOptionsClient
     Task<Result> Delete(string code);
     Task<Result<SupplierPriorityByTypes>> GetPriorities();
     Task<Result> ModifyPriorities(SupplierPriorityByTypes priorities);
-    Task<Result> SetEnablementState(string code, EnablementState state, string reason);
+    Task<Result> SetEnableState(string code, EnableState state, string reason);
 }

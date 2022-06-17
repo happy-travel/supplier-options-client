@@ -55,9 +55,9 @@ public class SupplierOptionsClient : ISupplierOptionsClient
         });
         
     
-    public Task<Result> SetEnablementState(string code, EnablementState state, string reason) 
+    public Task<Result> SetEnableState(string code, EnableState state, string reason) 
         => SendWithoutResult(new HttpRequestMessage(HttpMethod.Post,
-                $"{_clientSettings.BaseEndpoint}/api/1.0/suppliers/{code}/set-enablement-state")
+                $"{_clientSettings.BaseEndpoint}/api/1.0/suppliers/{code}/enable-state")
             {
                 Content = JsonContent.Create(inputValue: new
                 {
