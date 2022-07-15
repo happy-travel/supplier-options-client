@@ -9,7 +9,7 @@ public record SlimSupplier
     public string? ConnectorGrpcEndpoint { get; set; }
     public bool IsMultiRoomFlowSupported { get; init; }
     public Dictionary<string, string>? CustomHeaders { get; init; }
-    public bool CanUseGrpc { get; set; }
-    public string? GiataCode { get; set; }
+    public bool CanUseGrpc { get; init; }
+    public string? GiataCode { get; init; }
     public bool IsDirectContract { get; init; }
 }

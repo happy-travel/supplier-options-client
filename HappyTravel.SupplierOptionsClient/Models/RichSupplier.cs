@@ -14,7 +14,7 @@ public class RichSupplier
     public List<Contact>? SupportContacts { get; init; }
     public List<Contact>? ReservationsContacts { get; init; }
     public Dictionary<string, string>? CustomHeaders { get; init; }
-    public bool CanUseGrpc { get; set; }
-    public string? GiataCode { get; set; }
+    public bool CanUseGrpc { get; init; }
+    public string? GiataCode { get; init; }
     public bool IsDirectContract { get; init; }
 }
