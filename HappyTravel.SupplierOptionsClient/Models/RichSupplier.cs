@@ -16,4 +16,5 @@ public class RichSupplier
     public Dictionary<string, string>? CustomHeaders { get; init; }
     public bool CanUseGrpc { get; set; }
     public string? GiataCode { get; set; }
+    public bool IsDirectContract { get; set; }
 }
