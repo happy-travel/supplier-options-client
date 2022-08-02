@@ -20,7 +20,7 @@
     </PropertyGroup>
     
     <ItemGroup>
-        <PackageReference Include="CSharpFunctionalExtensions" Version="2.31.0" />
+        <PackageReference Include="CSharpFunctionalExtensions" Version="2.31.1" />
         <PackageReference Include="HappyTravel.MapperContracts" Version="1.4.2" />
         <PackageReference Include="IdentityModel.AspNetCore" Version="4.3.0" />
         <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
